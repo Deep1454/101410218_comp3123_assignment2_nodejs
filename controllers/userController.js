@@ -23,8 +23,8 @@ exports.signup = async (req, res) => {
         // Returning a success message with user ID
         res.status(201).json({ message: 'User created successfully', user_id: newUser._id });
     } catch (error) {
-        // Handling MongoDB duplicate key error (E11000) and other errors
-        console.error(error); // Log the error for better debugging
+        
+        console.error(error); 
         if (error.code === 11000) {
             return res.status(400).json({ message: 'Email already in use' });
         }

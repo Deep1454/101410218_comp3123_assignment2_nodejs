@@ -72,7 +72,7 @@ exports.deleteEmployee = async (req, res) => {
     }
 };
 
-// Updated getEmployees function to filter by department
+// this function will get Updated Employees function to filter by department
 exports.getEmployees = async (req, res) => {
     try {
         // Get the department from query parameters

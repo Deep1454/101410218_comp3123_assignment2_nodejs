@@ -71,3 +71,25 @@ exports.deleteEmployee = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+
+// Updated getEmployees function to filter by department
+exports.getEmployees = async (req, res) => {
+    try {
+        // Get the department from query parameters
+        const department = req.query.department;
+
+        // If a department is provided, filter employees by department
+        let employees;
+        if (department) {
+            employees = await Employee.find({ department: department });
+        } else {
+            employees = await Employee.find(); 
+        }
+
+        res.status(200).json(employees);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+
